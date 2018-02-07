@@ -3,7 +3,11 @@
 <div id="artists">
   <% @gallery.artists.each do |artist| %>
     <div class="artist">
-      <div class="image_placeholder"></div>
+      <% if artist.painting.attached? %>
+        <%= image_tag artist.painting %>
+      <% else %>
+        <div class="image_placeholder"></div>
+      <% end %>
       <div class="name"><%= artist.name %></div>
       <div class="actions">
         <%= link_to "edit", edit_gallery_artist_path(@gallery, artist) %> |
