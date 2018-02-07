@@ -1,7 +1,7 @@
 <h1><%= @gallery.name %></h1>
 
 <div id="artists">
-  <% @gallery.artists.each do |artist| %>
+  <% @gallery.artists.with_attached_painting.each do |artist| %>
     <div class="artist">
       <% if artist.painting.attached? %>
         <%= image_tag artist.painting %>
