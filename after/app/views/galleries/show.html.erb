@@ -4,8 +4,14 @@
   <% @gallery.artists.with_attached_paintings.each do |artist| %>
     <div class="artist">
       <% if artist.paintings.attached? %>
-        <% artist.paintings.each do |painting| %>
-          <%= image_tag painting %>
+        <%= content_tag(:div, data: { controller: "paintings" }) do %>
+          <% artist.paintings.each do |painting| %>
+            <%= image_tag painting, class: "painting", data: { target: "paintings.painting" } %>
+          <% end %>
+          <div class="paintings-actions">
+            <button data-action="paintings#previous">←</button>
+            <button data-action="paintings#next">→</button>
+          </div>
         <% end %>
       <% else %>
         <div class="image_placeholder"></div>

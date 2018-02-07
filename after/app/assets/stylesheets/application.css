@@ -121,3 +121,15 @@ a {
   text-align: center;
   color: #777;
 }
+
+.painting {
+  display: none;
+}
+
+.painting.painting--current {
+  display: block;
+}
+
+.paintings-actions {
+  text-align: center;
+}
