@@ -6,7 +6,7 @@
       <% if artist.paintings.attached? %>
         <%= content_tag(:div, data: { controller: "paintings" }) do %>
           <% artist.paintings.each do |painting| %>
-            <%= image_tag painting, class: "painting", data: { target: "paintings.painting" } %>
+            <%= image_tag painting.variant(resize: "200x200"), class: "painting", data: { target: "paintings.painting" } %>
           <% end %>
           <div class="paintings-actions">
             <button data-action="paintings#previous">←</button>
