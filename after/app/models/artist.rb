@@ -12,5 +12,5 @@
 class Artist < ApplicationRecord
   belongs_to :gallery, counter_cache: true
 
-  has_one_attached :painting
+  has_many_attached :paintings
 end
